@@ -7,7 +7,7 @@ const pageObject = {
   searchButton: '.SearchButtonContainer-sc-65ycrl.cCAKsY',
 }
 
-// jest.setTimeout(10000) // if running tests on slower network connection or device, increase timeout
+jest.setTimeout(10000) // if running tests on slower network connection or device, increase timeout
 
 describe('Giphy - Trending', () => {
   beforeAll(async () => {
@@ -28,7 +28,7 @@ describe('Giphy - Trending', () => {
     await page.click(pageObject.firstTrendingGIF)
 
     await page.waitForSelector(pageObject.firstTrendingGIFPage)
-    const trendingGIFSRCMP4 = await page.evaluate(() => document.querySelector("#react-target > div > div:nth-child(5) > div > div._3lHuNOPnvckvR4CcUUV0gB > div.Container-sc-12lgmgn.fIFNuA > div.ContentWrapper-sc-14xwjff.hfnmXe > div > div > div._1M8xq1jPOAHRc0OSZxxS8_ > div.KRS9L9BsuEdhF-ACKiX8x > div > a > div > video").src)
+    const trendingGIFSRCMP4 = await page.evaluate(() => document.querySelector("#react-target > div > div:nth-child(5) > div > div._3lHuNOPnvckvR4CcUUV0gB > div.Container-sc-12lgmgn.fIFNuA > div.ContentWrapper-sc-14xwjff.hfnmXe > div > div > div._1M8xq1jPOAHRc0OSZxxS8_ > div.KRS9L9BsuEdhF-ACKiX8x > div > div > video").src)
     const receivedID = trendingGIFSRCMP4.split('/')[4]
     await expect(expectedID).toBe(receivedID)
   })

@@ -22,7 +22,7 @@ describe('Giphy - Trending', () => {
 
     await page.waitForTimeout(2000)
     const divContainer = await page.$$(pageObject.trendingGIFDiv) // since the img element has no class or id attribute, we need to select the div container
-    const imgSrc = await divContainer[0].$eval('img', el => el.getAttribute('src'));
+    const imgSrc = await divContainer[0].$eval('img', el => el.getAttribute('src'))
     const actualID = await imgSrc.split('/')[4]
 
     await expect(expectedID).toBe(actualID)

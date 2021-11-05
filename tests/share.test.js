@@ -6,8 +6,8 @@ describe('Giphy - Share', () => {
   beforeAll(async () => {
     await page.setViewport({ width: 1200, height: 1200 })
     await page.goto(pageObject.url)
-    const context = browser.defaultBrowserContext();
-    await context.overridePermissions('https://giphy.com', ['clipboard-read']);
+    const context = browser.defaultBrowserContext()
+    await context.overridePermissions('https://giphy.com', ['clipboard-read'])
   })
 
   it('should copy correct gif link', async () => {
@@ -24,7 +24,7 @@ describe('Giphy - Share', () => {
     await (await page.$(pageObject.shareButton)).click()
     await (await page.$(pageObject.copyToClipboard)).click()
 
-    expect(await page.evaluate(() => navigator.clipboard.readText())).toContain(receivedID);
+    expect(await page.evaluate(() => navigator.clipboard.readText())).toContain(receivedID)
   })
 })
 

@@ -1,5 +1,5 @@
 module.exports = {
     launch: {
-        headless: true, // for debugging of tests set to false
+        headless: false, // for debugging of tests set to false
     }
 }

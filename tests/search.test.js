@@ -8,7 +8,6 @@ describe('Giphy - Search', () => {
     await page.goto(pageObject.url)
   })
 
-  // Search
   it('should contain search field', async () => {
     const searchField = await page.$(pageObject.search)
     await expect(searchField).toBeTruthy()
